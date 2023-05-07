@@ -2,6 +2,7 @@ package platform.businessPlayer.controllers;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
@@ -9,10 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import platform.persistence.Code;
 import platform.persistence.CodeResponse;
 
@@ -21,6 +19,10 @@ import platform.persistence.CodeResponse;
 public class FirstController {
 
     private Code code = new Code();
+    private  Integer id = 0;
+    HashMap <Integer, Code> codeHashMap = new HashMap<>();
+
+
     CodeResponse response;
 
     @GetMapping(value = "/api/code", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -34,6 +36,8 @@ public class FirstController {
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+
 
     @PostMapping(value = "/api/code/new", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
@@ -60,5 +64,12 @@ public class FirstController {
     @GetMapping("/code/new")
     public String createCodeHtml() {
         return "create";
+    }
+
+
+    @GetMapping(value =  "api/code/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String show(@PathVariable("id") int id, Model model) {
+
     }
 }
