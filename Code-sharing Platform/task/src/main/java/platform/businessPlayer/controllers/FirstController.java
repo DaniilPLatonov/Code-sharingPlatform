@@ -18,10 +18,12 @@ import platform.persistence.CodeResponse;
 @Controller
 public class FirstController {
 
-    private Code code = new Code();
-    private  Integer id = 0;
-    HashMap <Integer, Code> codeHashMap = new HashMap<>();
 
+    private Code code = new Code();
+
+    private  Integer id = 0;
+
+    HashMap <Integer, Code> codeHashMap = new HashMap<>();
 
     CodeResponse response;
 
@@ -38,7 +40,6 @@ public class FirstController {
     }
 
 
-
     @PostMapping(value = "/api/code/new", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<String> setCode(@RequestBody Map<String, String> requestBody) {
@@ -48,6 +49,7 @@ public class FirstController {
         response = new CodeResponse(code.getCurrentCode(), code.getLoadDate());
         return ResponseEntity.ok("{}");
     }
+
 
     @GetMapping("/code")
     public String getCodeHtml(Model model) {
@@ -60,6 +62,7 @@ public class FirstController {
         }
         return "code2";
     }
+
 
     @GetMapping("/code/new")
     public String createCodeHtml() {
