@@ -3,7 +3,7 @@ package platform.persistence;
 import java.time.LocalDateTime;
 
 public class Code {
-    private String code = "public static void main(String[] args) { SpringApplication.run(CodeSharingPlatform.class, args);}";
+  //  private String code = "public static void main(String[] args) { SpringApplication.run(CodeSharingPlatform.class, args);}";
 
     private String currentCode;
 
@@ -33,10 +33,6 @@ public class Code {
 
     public void setLoadDate(LocalDateTime loadDate) {
         this.loadDate = loadDate;
-    }
-
-    public String getCode() {
-        return code;
     }
 
 }
