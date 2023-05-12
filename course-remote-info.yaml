@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/405256/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: "Thu, 27 Apr 2023 17:30:27 UTC"
+update_date: "Wed, 03 May 2023 18:13:35 UTC"
 stages:
 - id: 692
   step: 11027
@@ -452,18 +452,18 @@ topics:
     theory_id: 8611
   - title: Logic and comparison expressions
     theory_id: 8619
+  - title: Basic INSERT statement
+    theory_id: 9059
+  - title: Basic DELETE statement
+    theory_id: 9075
   - title: The NULL value
     theory_id: 7907
   - title: Special WHERE operators
     theory_id: 10521
   - title: Results ordering
     theory_id: 8627
-  - title: Basic INSERT statement
-    theory_id: 9059
-  - title: Basic DELETE statement
-    theory_id: 9075
   - title: Queue
-    theory_id: 20716
+    theory_id: 28474
   - title: Deque
     theory_id: 18635
   - title: Limit and Offset
