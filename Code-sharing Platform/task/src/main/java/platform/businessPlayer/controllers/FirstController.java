@@ -1,68 +1,38 @@
 package platform.businessPlayer.controllers;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import platform.persistence.Code;
 import platform.persistence.CodeResponse;
 
 
 @Controller
 public class FirstController {
+    private Integer id = 0;
 
-
-    private Code code = new Code();
-
-    private  Integer id = 0;
-
-    HashMap <Integer, Code> codeHashMap = new HashMap<>();
-
-    CodeResponse response;
-
-    @GetMapping(value = "/api/code", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public ResponseEntity<CodeResponse> getCode() {
-
-        if (code.getCurrentCode() == null || code.getLoadDate() == null) {
-            response = new CodeResponse(code.getCode(), code.getNoChangeTime());
-        } else {
-            response = new CodeResponse(code.getCurrentCode(), code.getLoadDate());
-        }
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
+    HashMap<Integer, CodeResponse> codeHashMap = new HashMap<>();
 
     @PostMapping(value = "/api/code/new", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<String> setCode(@RequestBody Map<String, String> requestBody) {
-        String newCode = requestBody.get("code");
-        code.setCurrentCode(newCode);
-        code.setLoadDate(LocalDateTime.now());
-        response = new CodeResponse(code.getCurrentCode(), code.getLoadDate());
-        return ResponseEntity.ok("{}");
+        id++;
+        codeHashMap.put(id, new CodeResponse(requestBody.get("code"), LocalDateTime.now()));
+        return ResponseEntity.ok("{ \"id\" : \"" + id + "\" } ");
     }
 
 
-    @GetMapping("/code")
-    public String getCodeHtml(Model model) {
-        if (code.getCurrentCode() == null || code.getLoadDate() == null) {
-            model.addAttribute("codeSnippet", code.getCode());
-            model.addAttribute("loadDate", code.getNoChangeTime());
-        } else {
-            model.addAttribute("codeSnippet", code.getCurrentCode());
-            model.addAttribute("loadDate", code.getLoadDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSS")));
-        }
+    @GetMapping("/code/{id}")
+    public String getCodeHtml(Model model, @PathVariable("id") int id) {
+        CodeResponse response1 = codeHashMap.get(id);
+        model.addAttribute("codeSnippet", response1.getCurrentCode());
+        model.addAttribute("loadDate", response1.getLoadDate());
         return "code2";
     }
-
 
     @GetMapping("/code/new")
     public String createCodeHtml() {
@@ -70,9 +40,38 @@ public class FirstController {
     }
 
 
-    @GetMapping(value =  "api/code/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "api/code/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public String show(@PathVariable("id") int id, Model model) {
-
+    public CodeResponse show(@PathVariable("id") int id) {
+        return codeHashMap.get(id);
     }
+
+
+    public CodeResponse[] arrayCode() {
+        CodeResponse[] values = codeHashMap.values().toArray(new CodeResponse[0]);
+        int arraySize = Math.min(values.length, 10);
+        CodeResponse[] reversedValues = new CodeResponse[arraySize];
+        for (int i = values.length - 1, j = 0; i >= Math.max(values.length - 10, 0); i--, j++) {
+            reversedValues[j] = values[i];
+        }
+        return reversedValues;
+    }
+
+
+    @GetMapping("/code/latest")
+    public String getCodeHtml3(Model model) {
+
+        List<CodeResponse> responseList = new ArrayList<>(Arrays.asList(arrayCode()));
+        model.addAttribute("code", responseList);
+        return "latest";
+    }
+
+
+    @GetMapping(value = "api/code/latest", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public CodeResponse[] getCodeHtml4() {
+        return arrayCode();
+    }
+
+
 }
