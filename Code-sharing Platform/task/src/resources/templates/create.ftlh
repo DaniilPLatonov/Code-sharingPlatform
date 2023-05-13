@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Create Code Snippet</title>
+    <title>Create</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -52,6 +52,19 @@
             transition: background-color 0.3s ease;
         }
 
+        .latest-link {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            color: #4CAF50;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .latest-link:hover {
+            text-decoration: underline;
+        }
+
         button[type="submit"]:hover {
             background-color: #3e8e41;
         }
@@ -74,6 +87,7 @@
     <label for="code_snippet">Enter your code here:</label>
     <textarea id="code_snippet" rows="10" placeholder="Code"></textarea>
     <button id="send_snippet" type="submit">Create Snippet</button>
+    <a href="http://localhost:8889/code/latest" class="latest-link">View Latest Snippets</a>
 </form>
 <div id="success" class="success" style="display:none;">Code snippet successfully created!</div>
 
