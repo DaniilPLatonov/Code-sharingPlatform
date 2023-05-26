@@ -1,4 +1,4 @@
-package platform.businessPlayer.controllers;
+package platform.controllers;
 
 import java.time.LocalDateTime;
 import java.util.*;
