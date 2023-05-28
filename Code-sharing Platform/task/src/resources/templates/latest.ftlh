@@ -17,6 +17,7 @@
             text-align: center;
         }
 
+
         header a {
             display: inline-block;
             background-color: white;
