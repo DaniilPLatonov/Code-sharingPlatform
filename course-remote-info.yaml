@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/405256/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: "Sun, 14 May 2023 19:56:14 UTC"
+update_date: "Mon, 29 May 2023 19:59:48 UTC"
 stages:
 - id: 692
   step: 11027
@@ -22,14 +22,22 @@ stages:
   is_completed: false
 topics:
   0:
-  - title: "Write, compile, and run"
-    theory_id: 3739
-  - title: "JVM, JRE, and JDK"
-    theory_id: 3499
+  - title: Computer algorithms
+    theory_id: 16547
+  - title: The big O notation
+    theory_id: 16699
+  - title: "Best, average and worst cases"
+    theory_id: 20084
+  - title: Data structures
+    theory_id: 16927
   - title: Units of information
     theory_id: 6865
+  - title: "Write, compile, and run"
+    theory_id: 3739
   - title: IDE
     theory_id: 10996
+  - title: "JVM, JRE, and JDK"
+    theory_id: 3499
   - title: Introduction to Operating systems
     theory_id: 9704
   - title: Command line overview
@@ -38,22 +46,24 @@ topics:
     theory_id: 9746
   - title: World Wide Web
     theory_id: 6633
-  - title: Computer algorithms
-    theory_id: 16547
   - title: HyperText Transfer Protocol
     theory_id: 6569
+  - title: Pseudocode
+    theory_id: 15090
+  - title: Pseudocode basics
+    theory_id: 19510
+  - title: Complex constructions in pseudocode
+    theory_id: 20922
   - title: Immutability
     theory_id: 7929
   - title: Introduction to Spring Boot
     theory_id: 7944
   - title: Getting started with Spring Boot
     theory_id: 6336
-  - title: The big O notation
-    theory_id: 16699
-  - title: "Best, average and worst cases"
-    theory_id: 20084
-  - title: Data structures
-    theory_id: 16927
+  - title: Fixed-size array
+    theory_id: 20078
+  - title: Dynamic array
+    theory_id: 5357
   - title: HTTP URL
     theory_id: 6740
   - title: The concept of patterns
@@ -194,20 +204,10 @@ topics:
     theory_id: 6216
   - title: Web development
     theory_id: 13931
-  - title: Pseudocode
-    theory_id: 15090
-  - title: Pseudocode basics
-    theory_id: 19510
-  - title: Complex constructions in pseudocode
-    theory_id: 20922
   - title: Libraries
     theory_id: 8504
   - title: Frameworks
     theory_id: 6701
-  - title: Fixed-size array
-    theory_id: 20078
-  - title: Dynamic array
-    theory_id: 5357
   - title: What is a bug
     theory_id: 5504
   - title: Functional testing
@@ -343,6 +343,12 @@ topics:
     theory_id: 9420
   - title: Border
     theory_id: 8355
+  - title: "Hashing: overview"
+    theory_id: 9831
+  - title: Hash function
+    theory_id: 10878
+  - title: Hash table
+    theory_id: 13054
   - title: Introduction to logging
     theory_id: 5538
   - title: Debugging techniques
@@ -375,12 +381,6 @@ topics:
     theory_id: 3557
   - title: Collections and thread-safety
     theory_id: 4984
-  - title: "Hashing: overview"
-    theory_id: 9831
-  - title: Hash function
-    theory_id: 10878
-  - title: Hash table
-    theory_id: 13054
   - title: The Map interface
     theory_id: 3558
   - title: Thread-safe maps
@@ -428,6 +428,12 @@ topics:
   - title: Inner classes
     theory_id: 11505
   4:
+  - title: Stack
+    theory_id: 5252
+  - title: Queue
+    theory_id: 28474
+  - title: Deque
+    theory_id: 18635
   - title: Transaction management
     theory_id: 28141
   - title: Property expressions
@@ -436,8 +442,6 @@ topics:
     theory_id: 25602
   - title: Custom queries with @Query
     theory_id: 27291
-  - title: Stack
-    theory_id: 5252
   - title: Basic data types
     theory_id: 7123
   - title: Literals
@@ -462,10 +466,6 @@ topics:
     theory_id: 10521
   - title: Results ordering
     theory_id: 8627
-  - title: Queue
-    theory_id: 28474
-  - title: Deque
-    theory_id: 18635
   - title: Limit and Offset
     theory_id: 18793
   - title: Introduction to transactions
